@@ -1,6 +1,8 @@
 ---
 title: "R Notebook"
 output: html_notebook
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -16,50 +18,66 @@ library(tidyverse)
 library(janitor)
 library(data.table)
 library(skimr)
-```
-
-
-```{r}
-install.packages("here")
-
-```
-
-```{r}
+library(here)
 library(readxl)
 
-coral.travel <- read_excel("2018-raw-data-from-Sam-01302020-for-teagan.xlsx",
-    na = "NA")
-```
-
-
-
-```{r}
-coral.travel 
+#install.packages("googlesheets4)
+library(googlesheets4)
 
 ```
 
 
-#checking data
-```{r}
-names(coral.travel)
+```{r load-data}
+#from Excel 
+# here()
+# coral_travel <- read_excel("2018-raw-data-from-Sam-01302020-for-teagan.xlsx",
+#                            na = "NA") %>% 
+#   clean_names()
+
+#load from Google Sheets
+coral_travel_original <- read_sheet("https://docs.google.com/spreadsheets/d/1bbf_4Uv9diOOovP5iAgWFFdf-VZfSIkAqk_m0eH78a4/edit#gid=134456861") %>% 
+  clean_names()
+  
+coral_travel_original
+names(coral_travel_original)
+nrow(coral_travel_original)
+
+```
+
+#Subset data to remove duplicates
+
+```{r filter-data}
+coral_travel <- coral_travel_original %>% 
+  filter(!is.na(affiliation_airport)) %>%
+  select(article_id, 
+         journal, 
+         title, 
+         affiliation, 
+         affiliation_airport, 
+         mapping_affiliation, 
+         mapping_country, 
+         field_study_location, 
+         field_airport) 
+
+coral_travel
+nrow(coral_travel)
 ```
 
 
-```{r}
-travel.data <- coral.travel %>% 
-  filter(!is.na(affiliation_airport))%>%
-  select(title, affiliation, affiliation_airport, mapping_affiliation, mapping_country, field_study_location, field_airport) 
+```{r summarize-data}
+#count distinct articles
+coral_travel %>%
+  distinct(article_id) %>% 
+  nrow()
 
+#82 unique articles
 
-travel.data
-```
+#count distinct journals
+coral_travel %>%
+  distinct(journal) %>% 
+  nrow()
 
-
-```{r}
-distinct.titles <- travel.data %>%
-  distinct()
-
-distinct.titles
+#9 journals
 ```
 
 

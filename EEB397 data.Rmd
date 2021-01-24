@@ -130,7 +130,7 @@ airport code airportr
 ```{r find travel route distance}
 #step 1 testing apply function for each column
 trial_travel <- coral_travel_original %>% 
-  filter(!is.na(affiliation_airport), !"") %>%
+  filter(!is.na(affiliation_airport)) %>%
   select(field_airport_code, affiliation_airport_code) 
 
 #trial_travel%>%
@@ -140,7 +140,7 @@ trial_travel <- coral_travel_original %>%
 #trial_travel%>%
  #apply(ffiliation_airport_code&field_airport_code, airport_distance, 22, f)
 
-#distance function aplied down columns = total km 
+#distance function applied down columns = total km 
 f = function(x,output) {
     # x is the row of type Character
     # access element in first column
@@ -153,7 +153,7 @@ f = function(x,output) {
 
 apply(trial_travel, 2, f)
 
-#distance function aplied down columns = total km 
+#distance function applied across rows = km per route 
 f = function(x,output) {
     # x is the row of type Character
     # access element in first column
@@ -164,7 +164,7 @@ f = function(x,output) {
     airport_distance(affiliation_airport_code, field_airport_code)
 }
 
-apply(trial_travel, 1, f)
+apply(trial_travel, 1, f) 
 
 
 coral_travel%>%
@@ -173,6 +173,13 @@ coral_travel%>%
   airport_lookup("Dauphin Isl",input_type = "name", output_type ="IATA")%>%
 
   
+
+```
+
+```{r}
+trial_travel1 <- coral_travel_original %>% 
+  filter(!is.na(field_airport_code))%>%
+  select(field_airport_code, affiliation_airport_code) 
 
 ```
 

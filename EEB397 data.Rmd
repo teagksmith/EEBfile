@@ -1,7 +1,9 @@
 ---
 title: "R Notebook"
-output: html_notebook
-editor_options: 
+output:
+  pdf_document: default
+  html_notebook: default
+editor_options:
   chunk_output_type: console
 ---
 
@@ -20,10 +22,13 @@ library(data.table)
 library(skimr)
 library(here)
 library(readxl)
+library(dplyr)
 
 #install.packages("googlesheets4)
 library(googlesheets4)
 
+#install.packages("airportr")
+library(airportr)
 ```
 
 
@@ -60,7 +65,7 @@ coral_travel <- coral_travel_original %>%
          field_airport) 
 
 coral_travel
-nrow(coral_travel)
+nrow(coral_travel) 
 ```
 
 
@@ -69,15 +74,105 @@ nrow(coral_travel)
 coral_travel %>%
   distinct(article_id) %>% 
   nrow()
-
 #82 unique articles
 
 #count distinct journals
 coral_travel %>%
   distinct(journal) %>% 
   nrow()
-
 #9 journals
+
+#range of number of articles per journal
+coral_travel%>%
+  select(journal,article_id) %>% 
+  nchar(., type = "chars", allowNA = FALSE, keepNA = NA)
+
+#total number of routes
+coral_travel %>%
+  select(affiliation_airport,field_airport)%>%
+  tally
+#82
+
+#count distinct/unique routes
+routes_distinct <- coral_travel %>%
+  select(affiliation_airport,field_airport)%>%
+  distinct() %>% 
+  arrange(affiliation_airport,field_airport)
+
+routes_distinct%>%
+  tally()
+#73 distinct routes
+
+#Number of different start airports
+coral_travel%>%
+  distinct(affiliation_airport)%>%
+  tally
+#51 distinct start airports
+
+#number of different end airports
+coral_travel%>%
+  distinct(field_airport)%>%
+  tally
+#57 distinct end aiports
+
+#number of different field locations
+coral_travel%>%
+  distinct(field_study_location)%>%
+  tally
+#66 distinct field locations not sure how to discern ecoregion look up different package?
 ```
 
+objective:
+use 
+article affiliation
+city manually
+airport code airportr
+```{r find travel route distance}
+#step 1 testing apply function for each column
+trial_travel <- coral_travel_original %>% 
+  filter(!is.na(affiliation_airport), !"") %>%
+  select(field_airport_code, affiliation_airport_code) 
+
+#trial_travel%>%
+  #group_by(field_airport_code, affiliation_airport_code)%>%
+  #mutate(distance_km = airport_distance(,))
+
+#trial_travel%>%
+ #apply(ffiliation_airport_code&field_airport_code, airport_distance, 22, f)
+
+#distance function aplied down columns = total km 
+f = function(x,output) {
+    # x is the row of type Character
+    # access element in first column
+    affiliation_airport_code = x[1]
+    # access element in second column
+    field_airport_code = x[3]
+    #your code to process x
+    airport_distance(affiliation_airport_code, field_airport_code)
+}
+
+apply(trial_travel, 2, f)
+
+#distance function aplied down columns = total km 
+f = function(x,output) {
+    # x is the row of type Character
+    # access element in first column
+    affiliation_airport_code = x[1]
+    # access element in second column
+    field_airport_code = x[3]
+    #your code to process x
+    airport_distance(affiliation_airport_code, field_airport_code)
+}
+
+apply(trial_travel, 1, f)
+
+
+coral_travel%>%
+  select(affiliation_airport)%>%
+  city_airports(city, country)%>%
+  airport_lookup("Dauphin Isl",input_type = "name", output_type ="IATA")%>%
+
+  
+
+```
 

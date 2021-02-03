@@ -1,15 +1,14 @@
 ---
 title: "R Notebook"
 output:
-  pdf_document: default
   html_notebook: default
 editor_options:
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
-                      eval = FALSE, 
+knitr::opts_chunk$set(echo = TRUE, 
+                      eval = TRUE, 
                       message = FALSE, warning = FALSE)
 #set include to false to only include chunks we're building from beginning
 
@@ -22,15 +21,16 @@ library(data.table)
 library(skimr)
 library(here)
 library(readxl)
-library(dplyr)
 
 #install.packages("googlesheets4)
 library(googlesheets4)
 
-#install.packages("airportr")
+#install.packages("skimr")
 library(airportr)
 ```
 
+
+# Load data from Google Sheets 
 
 ```{r load-data}
 #from Excel 
@@ -40,41 +40,73 @@ library(airportr)
 #   clean_names()
 
 #load from Google Sheets
-coral_travel_original <- read_sheet("https://docs.google.com/spreadsheets/d/1bbf_4Uv9diOOovP5iAgWFFdf-VZfSIkAqk_m0eH78a4/edit#gid=134456861") %>% 
-  clean_names()
-  
-coral_travel_original
-names(coral_travel_original)
-nrow(coral_travel_original)
+# coral_travel_original <- 
+#   read_sheet("https://docs.google.com/spreadsheets/d/1bbf_4Uv9diOOovP5iAgWFFdf-VZfSIkAqk_m0eH78a4/edit#gid=134456861") %>% 
+#   clean_names()
+#   
+# coral_travel_original
+# names(coral_travel_original)
+# nrow(coral_travel_original)
+# 
+# length(unique(coral_travel_original$article_id)) #104 articles in 2018 
+# 
+# #export cleaner database - one line per article
+# complete_data <- coral_travel_original %>% 
+#  select(article_id, 
+#         journal, 
+#         affiliation, 
+#         affiliation_country,
+#         affiliation_airport, 
+#         affiliation_airport_code, 
+#         field_study_location, 
+#         field_country, 
+#         field_airport, 
+#         field_airport_code) %>% 
+#   na.omit() %>% 
+#   distinct()
+# 
+# complete_data
+# 
+# #update some airport codes
+# complete_data %>% 
+#   filter(str_detect(affiliation, "Lucia"))
+# 
+# complete_data %>% 
+#   filter(str_detect(field_study_location, "Moorea"))
+# 
+# #clean up
+# complete_data <- complete_data %>% 
+#   mutate(affiliation_airport_code = 
+#            case_when(
+#              str_detect(affiliation, "Woods") ~ "BOS", 
+#              str_detect(affiliation, "St Lucia") ~ "BNE",
+#              TRUE ~ affiliation_airport_code), 
+#          field_airport_code = 
+#            case_when(
+#              str_detect(field_study_location, "Moorea") ~ "PPT", 
+#              TRUE ~ field_airport_code))
+# 
+# #75 complete rows with airport codes
+# complete_data %>% 
+#   fwrite(here("data", 
+#               "data for analysis.csv"))
 
-```
-
-#Subset data to remove duplicates
-
-```{r filter-data}
-coral_travel <- coral_travel_original %>% 
-  filter(!is.na(affiliation_airport)) %>%
-  select(article_id, 
-         journal, 
-         title, 
-         affiliation, 
-         affiliation_airport, 
-         mapping_affiliation, 
-         mapping_country, 
-         field_study_location, 
-         field_airport) 
+coral_travel <- read_csv(here("data", "data for analysis.csv"))
 
 coral_travel
-nrow(coral_travel) 
+names(coral_travel)
+skim(coral_travel)
 ```
 
 
-```{r summarize-data}
+#Some summaries 
+
+```{r summaries}
 #count distinct articles
 coral_travel %>%
   distinct(article_id) %>% 
   nrow()
-#82 unique articles
+#75 unique articles
 
 #count distinct journals
 coral_travel %>%
@@ -83,103 +115,149 @@ coral_travel %>%
 #9 journals
 
 #range of number of articles per journal
-coral_travel%>%
-  select(journal,article_id) %>% 
-  nchar(., type = "chars", allowNA = FALSE, keepNA = NA)
+# coral_travel%>%
+#   select(journal,article_id) %>% 
+#   nchar(., type = "chars", allowNA = FALSE, keepNA = NA)
 
 #total number of routes
 coral_travel %>%
-  select(affiliation_airport,field_airport)%>%
-  tally
-#82
+  select(affiliation_airport,field_airport) %>%
+  count()
+#75 routes
 
 #count distinct/unique routes
-routes_distinct <- coral_travel %>%
+coral_travel %>%
   select(affiliation_airport,field_airport)%>%
   distinct() %>% 
-  arrange(affiliation_airport,field_airport)
-
-routes_distinct%>%
-  tally()
-#73 distinct routes
+  arrange(affiliation_airport,field_airport) %>% 
+  count()
+#67 distinct routes
 
 #Number of different start airports
 coral_travel%>%
   distinct(affiliation_airport)%>%
-  tally
-#51 distinct start airports
+  count()
+#47 distinct start airports
 
 #number of different end airports
 coral_travel%>%
   distinct(field_airport)%>%
-  tally
-#57 distinct end aiports
+  count()
+#51 distinct end airports
 
 #number of different field locations
 coral_travel%>%
   distinct(field_study_location)%>%
-  tally
-#66 distinct field locations not sure how to discern ecoregion look up different package?
+  count()
+#60 distinct field locations not sure how to discern ecoregion look up different package?
+
 ```
 
-objective:
-use 
-article affiliation
-city manually
-airport code airportr
-```{r find travel route distance}
+
+# Find distance between airport codes
+
+```{r find-travel-distance}
 #step 1 testing apply function for each column
-trial_travel <- coral_travel_original %>% 
-  filter(!is.na(affiliation_airport)) %>%
-  select(field_airport_code, affiliation_airport_code) 
+# trial_travel <- coral_travel_original %>% 
+#   filter(!is.na(affiliation_airport)) %>%
+#   select(field_airport_code, affiliation_airport_code)
+# 
+# trial_travel
 
-#trial_travel%>%
-  #group_by(field_airport_code, affiliation_airport_code)%>%
-  #mutate(distance_km = airport_distance(,))
+# #distance function applied down columns = total km 
+# f = function(x,output) {
+#     # x is the row of type Character
+#     # access element in first column
+#     affiliation_airport_code = x[1]
+#     # access element in second column
+#     field_airport_code = x[3]
+#     #your code to process x
+#     airport_distance(affiliation_airport_code, field_airport_code)
+# }
+# 
+# apply(trial_travel, 2, f)
+# 
+# #distance function applied across rows = km per route 
+# f = function(x,output) {
+#     # x is the row of type Character
+#     # access element in first column
+#     affiliation_airport_code = x[1]
+#     # access element in second column
+#     field_airport_code = x[3]
+#     #your code to process x
+#     airport_distance(affiliation_airport_code, field_airport_code)
+# }
+# 
+# apply(trial_travel, 1, f) 
 
-#trial_travel%>%
- #apply(ffiliation_airport_code&field_airport_code, airport_distance, 22, f)
+#Check 
+coral_travel$affiliation_airport_code[1]
+coral_travel$field_airport_code[1]
+airport_distance(coral_travel$affiliation_airport_code[1], coral_travel$field_airport_code[1])
 
-#distance function applied down columns = total km 
-f = function(x,output) {
-    # x is the row of type Character
-    # access element in first column
-    affiliation_airport_code = x[1]
-    # access element in second column
-    field_airport_code = x[3]
-    #your code to process x
-    airport_distance(affiliation_airport_code, field_airport_code)
-}
+#add new column with airport distances between each pair
+#??airport_lookup  
+#airportr::airport_lookup("HBA", output_type = "city")
+??airportr::airport_distance
 
-apply(trial_travel, 2, f)
+## 1 - distance using airportr distances, km
+coral_travel <- coral_travel %>% 
+  rowwise() %>%  
+  mutate(airport_distance_km = airportr:::airport_distance(affiliation_airport_code, field_airport_code)) #single route
 
-#distance function applied across rows = km per route 
-f = function(x,output) {
-    # x is the row of type Character
-    # access element in first column
-    affiliation_airport_code = x[1]
-    # access element in second column
-    field_airport_code = x[3]
-    #your code to process x
-    airport_distance(affiliation_airport_code, field_airport_code)
-}
+skim(coral_travel$airport_distance)
 
-apply(trial_travel, 1, f) 
+#some examples of the furthest distances
+coral_travel %>% 
+  filter(airport_distance_km > 10000) %>% 
+  select(article_id, 
+         contains("code"), 
+         contains("country"), 
+         airport_distance_km) %>% 
+  arrange(-airport_distance_km)
+```
+#Distance to carbon emissions
+https://sheilasaia.rbind.io/post/2019-04-19-carbon-cost-calcs/
+
+And then compare to an equivalencies calculator 
+https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator
+
+```{r distance-to-carbon}
+
+#1 - distance to carbon, 1:1 conversion
+#convert km to miles
+#units -  metric tons of carbon dioxode
+num_people <- 1
+
+coral_travel <- coral_travel %>% 
+  mutate(distance_miles = airport_distance_km * 0.621, 
+         co2_distance = (distance_miles * num_people * 0.24 * (1 / 2204.62) * 1.891), 
+         co2_distance_roundtrip = co2_distance *2)
+
+sum(coral_travel$co2_distance_roundtrip) #80 metric tonnes
+
+ggplot(coral_travel, 
+       aes(airport_distance_km , co2_distance)) + 
+  geom_point() + 
+  theme_minimal()
 
 
-coral_travel%>%
-  select(affiliation_airport)%>%
-  city_airports(city, country)%>%
-  airport_lookup("Dauphin Isl",input_type = "name", output_type ="IATA")%>%
+#2 - distance to carbon based on flight duration
+#https://media.nature.com/original/magazine-assets/d41586-020-02057-2/18168996
 
+#Short-haul flight 400-1,500km 200 gCO2e / km / person]
+#Long-haul flight 1,500-8,000 250 gCO2e / km / person] 
+#Super long-haul flight >8,000 300 gCO2e / km / person]
+
+coral_travel <- coral_travel %>% 
+  mutate(co2_category = case_when(
+    airport_distance_km > 0 & airport_distance_km < 1500 ~ 200 * airport_distance_km, 
+    airport_distance_km >= 1500 & airport_distance_km < 8000 ~ 250 * airport_distance_km, 
+    airport_distance_km >= 8000 ~ 300 * airport_distance_km), 
+    co2_category = co2_category * (1/1000000), 
+    co2_category_roundtrip = co2_category * 2)
+
+sum(coral_travel$co2_category_roundtrip, na.rm = TRUE)
   
 
 ```
-
-```{r}
-trial_travel1 <- coral_travel_original %>% 
-  filter(!is.na(field_airport_code))%>%
-  select(field_airport_code, affiliation_airport_code) 
-
-```
-

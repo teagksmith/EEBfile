@@ -1,0 +1,76 @@
+article_id,journal,affiliation,affiliation_country,affiliation_airport,affiliation_airport_code,field_study_location,field_country,field_airport,field_airport_code
+13,PLOS ONE,"James Cook Univ, Coll Sci & Engn, Townsville, Qld",Australia,Townsville,TSV,northern Great Barrier Reef,Australia,Cairns,CNS
+18,PROCEEDINGS OF THE ROYAL SOCIETY B-BIOLOGICAL SCIENCES,"Queensland Museum, Biodivers & Geosci, Townsville, Qld 4810",Australia,Townsville,TSV,northern Great Barrier Reef,Australia,Cairns,CNS
+21,CORAL REEFS,"Univ Technol, Fish Ecol Lab, Sydney, NSW 2007",Australia,Sydney,SYD,Cabbage Tree Bay,Australia,Sydney Airport,SYD
+24,CORAL REEFS,"Univ Ryukyus, Grad Sch Engn & Sci, 1 Senbaru, Nishihara, Okinawa 9030213",Japan,"Nishihara, Okinawa",OKA,"Okinawa-jima Island, Japan",Japan,Kagoshima Airport,KOJ
+25,CORAL REEFS,"James Cook Univ, ARC Ctr Excellence Coral Reef Studies, Townsville, Qld 4811",Australia,Townsville,TSV,"Lizard Island, northern Great Barrier Reef",Australia,Cairns,CNS
+28,CORAL REEFS,"Pacific Otolith Serv, Honolulu",United States,Honolulu,HNL,Solomon Islands,Solomon Islands,Honiara International Airport,HIR
+29,CORAL REEFS,"Australian Inst Marine Sci, PMB 3, Townsville, Qld 4810",Australia,Townsville,TSV,"Cooktown, Innisfail",Australia,Cooktown Airport,CTN
+30,PROCEEDINGS OF THE NATIONAL ACADEMY OF SCIENCES OF THE UNITED STATES OF AMERICA,"NOAA, Southwest Fisheries Sci Ctr, Santa Cruz",United States,Santa Cruz,SFO,Mo'orea,French Polynesia,Aéroport de Moorea Temae,MOZ
+31,PLOS ONE,"Univ Western Australia, Sch Biol Sci, Crawley, WA",Australia,Crawley,PER,Onslow,Australia,Perth International Airport,PER
+34,PROCEEDINGS OF THE ROYAL SOCIETY B-BIOLOGICAL SCIENCES,"James Cook Univ, Australian Res Council Ctr Excellence Coral Reef, Townsville, Qld 4811",Australia,Townsville,TSV,Kimbe Bay,Papua New Guinea,Hoskins Airport,HKN
+37,PLOS ONE,"Dauph Isl Sea Lab, Dauphin Isl",United States,"Mobile, Alabama",BFM,"Layton, Florida",United States,Florida Keys/Marathon International Airport,MTH
+38,MARINE BIOLOGY,"James Cook Univ, ARC Ctr Excellence Coral Reef Studies, Townsville, Qld 4811",Australia,Townsville,TSV,northern Great Barrier Reef,Australia,Cairns,CNS
+39,FRONTIERS IN MARINE SCIENCE,"Univ New South Wales, Sch Biol Earth & Environm Sci, Ctr Marine Bioinnovat, Sydney, NSW",Australia,Sydney,SYD,Singapore’s southern islands,Singapore,Singapore Changi Airport,SIN
+41,MARINE BIOLOGY,"Amer Univ Cairo, Dept Biol, New Cairo 11835",Egypt,New Cairo,NAC,Hurghada,Egypt,Hurghada International Airport,HRG
+45,FRONTIERS IN MARINE SCIENCE,"James Cook Univ, ARC Ctr Excelienoe Coral Reef Studies, Townsville, Qld",Australia,Townsville,TSV,Indo-Australian archipelago,Australia,Ninoy Aquino International Airport,MNL
+46,PLOS ONE,"Univ Salento, Dept Biol & Environm Sci & Technol, Lab Ecol, Lecce",Italy,Lecce,LCC,Puglia,Italy,Aeroporto di Lecce San Cataldo,LCC
+49,FRONTIERS IN MARINE SCIENCE,"Nova Southeastern Univ, Halmos Coll Nat Sci & Oceanog, Dania",United States,Dania,FLL,"Miami-Dade County, Florida",United States,Miami International Airport,MIA
+50,PLOS ONE,"ZMT, Leibniz Ctr Trop Marine Res, Bremen",Germany,Bremen,BRE,"Matapal, Gulf of Papagayo",Costa Rica,Drake Bay Airport,DRK
+51,FRONTIERS IN MARINE SCIENCE,"Univ Puerto Rico, Dept Marine Sci, Mayaguez",United States,Mercedita/Ponce International Airport,PSE,"Guanica, Puerto Rick",United States,Mercedita/Ponce International Airport,PSE
+52,CONSERVATION LETTERS,MNEX,Mexico,Mexico City,MEX,Mexican Caribbean,Mexico,Cancun International Airport,CUN
+53,CORAL REEFS,"Univ Western Australia, UWA Oceans Inst, 35 Stirling Hwy, Crawley, WA 6009",Australia,Perth,PER,"Onslow, Western Australia",Australia,Onslow Airport,ONS
+55,CORAL REEFS,"Leibniz Ctr Trop Marine Ecol ZMT, Fahrenheitstr 6, D-28359 Bremen",Germany,Bremen,BRE,Curacao,Curacao,Curaçao International Airport,CUR
+59,CORAL REEFS,"Calif State Univ Northridge, Dept Biol, 18111 Nordhoff St, Northridge",United States,Northridge,BUR,"St. John, US Virgin Islands",United States,Cyril E. King Airpor,STT
+64,PLOS ONE,"Inst Marine Res, Pelag Grp, Bergen",Norway,Bergen,BGO,Great Barrier Reef,Australia,Cairns,CNS
+66,MARINE BIOLOGY,"James Cook Univ, ARC Ctr Excellence Coral Reef Studies, Townsville, Qld 4811",Australia,Townsville,TSV,Kimbe Bay,Papua New Guinea,Hoskin Airport,HKN
+67,MARINE BIOLOGY,"Univ Calif Santa Cruz, Dept Ecol & Evolutionary Biol, Santa Cruz",United States,Santa Cruz,SJC,Hawaiian Archapelago,United States,Honolulu International Airport (HNL,HNL
+76,MARINE BIOLOGY,"Univ Technol Sydney, Climate Change Cluster, POB 123, Broadway, NSW 2007",Australia,Sydney,SYD,Gladstone,Australia,Gladstone Airport,GLT
+77,PLOS ONE,"Cabrillo Coll, Dept Biol, Aptos",United States,"Aptos, CA",WVI,Colima Mexico,Mexico,Licenciado Miguel de la Madrid National Airport,CLQ
+80,MARINE BIOLOGY,"NOAA, AOML, 4301 Rickenbacker Cswy, Miami",United States,Miami,MIA,Florida Keys,United States,Key West International Airport,EYW
+82,CORAL REEFS,"Univ Hawaii Manoa, Appl Res Lab, Honolulu",United States,Honolulu,HNL,KAne'ohe Bay,United States,Honolulu International Airport,HNL
+83,CORAL REEFS,"Natl Inst Undersea Sci & Technol, Oxford",United States,Oxford,OXF,Florida Keys,United States,Key West International Airport,EYW
+84,CORAL REEFS,"CIEE Res Stn Bonaire, Kralendijk",Bonaire,Bonaire,BON,Honolulu,United States,Honolulu International Airport,HNL
+85,CORAL REEFS,"Australian Inst Marine Sci, PMB 3 Townsville MC, Townsville, Qld 4810",Australia,Townsville,TSV,Townsville,Australia,Townsville Airport,TSV
+86,CORAL REEFS,"US Geol Survey, Pacific Coastal & Marine Sci Ctr, Santa Cruz",United States,Santa Cruz,SJC,Pago Pago International Airport,American Samoa,Pago Pago International Airport,PPG
+90,CORAL REEFS,"Woods Hole Oceanog Inst, Woods Hole",United States,Woods Hole,BOS,St. John,United States Virgin Islands,Cyril E. King Airport,STT
+91,MARINE BIOLOGY,"Univ Tartu, Inst Ecol & Earth Sci, Ravila 14A, EE-50411 Tartu",Estonia,Tartu,TAY,"Vera Cruz, Gulf of Mexico",Mexico,Veracruz General Jara,VER
+92,FRONTIERS IN MARINE SCIENCE,"Australian Res Council, Ctr Excellence Coral Reef Studies, Townsville, Qld",Australia,Townsville,TSV,Gladstone,Australia,Gladstone Airport,GLT
+95,PLOS ONE,"Australian Inst Marine Sci, Townsville, Qld",Australia,Townsville,TSV,Milne Bay Province,Papua New Guinea,Gurney Airport,GUR
+96,FRONTIERS IN MARINE SCIENCE,"Univ Queensland, ARC Ctr Excellence Coral Reef Studies, St Lucia, Qld",Australia,Brisbane,BNE,southern Great Barrier Reef,Australia,Cairns,CNS
+99,FRONTIERS IN MARINE SCIENCE,"Monterey Bay Aquarium Res Inst, Moss Landing",United States,Moss Landing,WVI,Baileys Bay,Bermuda,L.F Wade International Airport,BDA
+101,PROCEEDINGS OF THE NATIONAL ACADEMY OF SCIENCES OF THE UNITED STATES OF AMERICA,"Univ Exeter, Coll Life & Environm Sci, Biosci, Exeter EX4 4QD, Devon",United Kingdom,Devon,EXT,Cooktown,Australia,Cooktown Airport,CTN
+104,CONSERVATION LETTERS,"Univ Calif San Diego, Scripps Inst Oceanog, Ctr Marine Biodivers & Conservat, La Jolla",United States,San Diego,SAN,Curaçao,Curacao,Curaçao International Airport,CUR
+106,CONSERVATION LETTERS,"Univ Exeter, ESI, Cornwall Campus, Penryn",United Kingdom,Penryn,NQY,Pile Bay,Barbados,Grantley Adams International Airport,BGI
+110,PLOS ONE,"King Abdullah Univ Sci & Technol, Div Biol & Environm Sci & Engn, Red Sea Res Ctr, Thuwal",Saudi Arabia,Thuwal,JED,Thuwal,Saudi Arabia,Jedda Airport,JED
+113,PLOS ONE,"James Cook Univ, Australian Res Council Ctr Excellence Coral Reef, Townsville, Qld",Australia,Townsville,TSV,northern Great Barrier Reef,Australia,Cairns,CNS
+114,PROCEEDINGS OF THE ROYAL SOCIETY B-BIOLOGICAL SCIENCES,"Univ Glasgow, Inst Biodivers Anim Hlth & Comparat Med, Graham Kerr Bldg, Glasgow G12 8QQ, Lanark",United Kingdom,Glasgow,GLA,"Opunohu Bay, Moorea",French Polynesia,Fa'a'ā International Airport,PPT
+115,MARINE BIOLOGY,"Florida Int Univ, Dept Biol Sci, 3000 NE 151st St, North Miami",United States,Miami,MIA,Belize,Belize,Philip S. W. Goldson International Airport,BZE
+116,MARINE BIOLOGY,"Calif State Univ Northridge, Dept Biol, 18111 Nordhoff St, Northridge",United States,Northridge,LAX,Moorea,French Polynesia,Fa'a'ā International Airport,PPT
+117,MARINE BIOLOGY,"James Cook Univ, ARC Ctr Excellence Coral Reef Studies, Townsville, Qld 4811",Australia,Townsville,TSV,New South Wales,Australia,Sydney Airport,SYD
+120,PROCEEDINGS OF THE ROYAL SOCIETY B-BIOLOGICAL SCIENCES,"James Cook Univ, Coll Sci & Engn, ARC Ctr Excellence Coral Reef Studies, Townsville, Qld 4811",Australia,Townsville,TSV,northern Great Barrier Reef,Australia,Cairns,CNS
+121,PROCEEDINGS OF THE ROYAL SOCIETY B-BIOLOGICAL SCIENCES,"Imperial Coll London, Dept Life Sci, Silwood Pk Campus,Buckhurst Rd, Ascot SL5 7PY, Berks",United Kingdom,Berks,RDG,Kiribati,United States,Bonriki International Airport,TRW
+125,PLOS ONE,"Univ British Columbia, Forest & Conservat Sci, Vancouver, BC",Canada,Vancouver,YVR,Danajon Bank,Philippines,Tagbilaran Airport,TAG
+126,PLOS ONE,"VUB, Marine Biol Ecol & Biodivers, Brussels",Belgium,Brussels,BRU,Maputo,Mozambique,Maputo International Airport,MPM
+129,CONSERVATION LETTERS,"Jacobs Univ, Dept Econ & Business, Bremen",Germany,Bremen,BRE,South East Sulawesi,Indonesia,Haluoleo Airport,KDI
+132,CORAL REEFS,"Univ Queensland, Sch Biol Sci, St Lucia, Qld 4072",Australia,Brisbane,BNE,northern Great Barrier Reef,Australia,Cairns,CNS
+133,CORAL REEFS,"PSL Res Univ, EPHE, UPVD, CNRS,USR3278,CRIOBE, BP 1013, F-98729 Moorea, French Polynesi",France,Moorea,MOZ,Moorea,French Polynesia,Fa'a'ā International Airport,PPT
+134,CORAL REEFS,"James Cook Univ, Coll Sci & Engn, ARC Ctr Excellence Coral Reef Studies, Townsville, Qld 4811",Australia,Townsville,TSV,Dumaguete,Philippines,Dumaguete Airport,DGT
+135,CORAL REEFS,"McGill Univ, Dept Biol, 1205 Docteur Penfield, Montreal, PQ H3A 1B1",Canada,Montreal,YUL,Gulf of Panama,Panama,"Río Hato Airport,",RIH
+136,CORAL REEFS,"Woods Hole Oceanog Inst, Dept Biol, Woods Hole",United States,Falmouth,BOS,Maui,United States,Kahului Airport,OGG
+137,CORAL REEFS,"James Cook Univ, ARC Ctr Excellence Coral Reef Studies, Townsville, Qld 4811",Australia,Townsville,TSV,northern Great Barrier Reef,Australia,Cairns,CNS
+138,CORAL REEFS,"King Abdullah Univ Sci & Technol, Div Biol & Environm Sci & Engn, Red Sea Res Ctr, Thuwal 239556900",Saudi Arabia,Thuwal,JED,southern Red Sea (SRS),Saudi Arabia,Asmara International Airport,ASM
+139,CORAL REEFS,"Tel Aviv Univ, Sch Zool, George S Wise Fac Life Sci, IL-69978 Tel Aviv",Israel,Tel Aviv,TLV,Eilat,Israel,Ramon Airport,ETM
+140,CORAL REEFS,"Hawaii Pacific Univ, Dept Nat Sci, 45-045 Kamehameha Hwy, Kaneohe",United States,Kaneohe,NGF,"Waimanalo, Oahu",United States,Honolulu International Airport,HNL
+143,CORAL REEFS,"World Wildlife Fund, Oceans Conservat, 1250 24th St NW, Washington",United States,Washington,IAD,Federated States of Micronesia,Indonesia,Pohnpei International Airport,PNI
+146,PLOS ONE,"Florida Inst Technol, Dept Biol Sci, Melbourne",United States,Melbourne,MEL,Luzon,Philippines,Clark International Airport,CRK
+147,PLOS ONE,"Univ Philippines, Inst Marine Sci, Quezon City",Philippines,Quezon City,MNL,Quezon,Philippines,Ninoy Aquino International Airport (MNL),MNL
+148,FRONTIERS IN MARINE SCIENCE,"Univ Tokyo, Atmosphere & Ocean Res Inst, Chiba",Japan,Tokyo,HND,Okinawa,Japan,Okinawa Naha Airport,OKA
+156,FRONTIERS IN MARINE SCIENCE,"Fdn Talking Oceans, Bogota",Colombia,Bogota,BOG,Northern Chocó,Colombia,José Celestino Mutis Airport,BSC
+160,MARINE POLICY,"Lab Excellence CORAIL, Perpignan",France,Perpignan,PGF,Moorea,French Polynesia,Fa'a'ā International Airport,PPT
+166,PLOS ONE,"CORDIO East Africa, Mombasa",Kenya,Mombasa,MBA,Maldives,Maldives,Malé International Airport,MLE
+167,PLOS ONE,"Univ Calif Davis, Dept Wildlife Fish & Conservat Biol, Davis",United States,Davis,SFO,Maui,United Staes,Kahului Airport,OGG
+1678,NATURE,"Univ Tasmania, Inst Marine & Antarctic Studies, Hobart, Tas",Australia,Tasmania,HBA,northern Great Barrier Reef,Australia,Cairns,CNS
+1680,NATURE,"James Cook Univ, ARC Ctr Excellence Coral Reef Studies, Townsville, Qld",Australia,Townsville,TSV,Chagos,Chagos,Malé International Airport,MLE
+1684,NATURE,"James Cook Univ, Australian Res Council Ctr Excellence Coral Reef, Townsville, Qld",Australia,Townsville,TSV,northern Great Barrier Reef,Australia,Cairns,CNS
+1685,NATURE,"Calif Acad Sci, San Francisco",United States,San Francisco,SFO,Gladstone,Australia,Gladstone Airport,GLT

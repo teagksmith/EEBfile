@@ -10,6 +10,9 @@ library(here)
 library(readxl)
 
 
+
+# load travel data --------------------------------------------------------
+
 coral_travel <- read_csv(here("data", "data for analysis.csv"))
 
 coral_travel
@@ -35,6 +38,9 @@ all_years
 
 all_years %>% 
   tabyl(pub_year)
+
+
+# import data from 2018 teagan work ---------------------------------------
 
 #grab 2018 airport codes from Teagan file 
 names(coral_travel)
@@ -72,6 +78,8 @@ names(check)
 #          contains("affiliation")) %>% 
 #   view()
 
+
+# make all years data -----------------------------------------------------
 #reorg
 data_for_teagan <- check %>% 
   select(-affiliation.y) %>% 
@@ -138,7 +146,19 @@ data_for_teagan <- data_for_teagan %>%
          starts_with("field"))
 
 data_for_teagan
-         
-write_csv(data_for_teagan, 
-          here("data", "all years for teagan with 2018 codes.csv"))
+
+#remove domestic article lines, so where affiliation country = field country
+data_for_teagan
+
+# data_for_teagan %>% 
+#   filter(affiliation_country == fieldstudy_country) %>% 
+#   filter(pub_year == 2018) %>% 
+#   view() #looks reasonable
+
+?write_csv
+
+data_for_teagan %>% 
+  filter(affiliation_country != fieldstudy_country) %>% 
+  write_csv(here("data", "all years for teagan with 2018 codes_no domestic.csv"), 
+            na = "")
 
